@@ -1,3 +1,6 @@
+//  Frequency Counter example
+// see if 2nd list has multiples of 2 of 1st list
+
 function same(arr1, arr2){
     if(arr1.length !== arr2.length){
         return false;
@@ -20,5 +23,60 @@ function same(arr1, arr2){
     }
     return true
 }
+// same([1,2,3,2,5], [9,1,4,4,11])
 
-same([1,2,3,2,5], [9,1,4,4,11])
+
+// Anagram problem
+// are two lists anagrams
+
+function anagram(first, second) {
+    const lookup = {}
+    for (let i = 0; i < first.length; i ++) {
+        let letter = first[i]
+        lookup[letter] ? lookup[letter] += 1 : lookup[letter] = 1
+    }
+    for (let i = 0; i < second.length; i ++) {
+        let letter = second[i]
+        if (!lookup[letter]) {
+            console.log('in false')
+            return false
+        } else {
+            lookup[letter] -= 1
+        }
+    }
+    console.log(lookup)
+    return true
+
+}
+// anagram('carr', 'arcr')
+
+function validAnagram(first, second) {
+    if (first.length !== second.length) {
+      return false;
+    }
+  
+    const lookup = {};
+  
+    for (let i = 0; i < first.length; i++) {
+      let letter = first[i];
+      // if letter exists, increment, otherwise set to 1
+      lookup[letter] ? lookup[letter] += 1 : lookup[letter] = 1;
+    }
+    console.log(lookup)
+  
+    for (let i = 0; i < second.length; i++) {
+      let letter = second[i];
+      // can't find letter or letter is zero then it's not an anagram
+      if (!lookup[letter]) {
+        return false;
+      } else {
+        lookup[letter] -= 1;
+      }
+    }
+  
+    return true;
+  }
+  
+  // {a: 0, n: 0, g: 0, r: 0, m: 0,s:1}
+  validAnagram('anagrams', 'nagaramm')
+
