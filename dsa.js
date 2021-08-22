@@ -1,4 +1,4 @@
-//  Frequency Counter example
+//              Frequency Counter example
 // see if 2nd list has multiples of 2 of 1st list
 
 function same(arr1, arr2){
@@ -79,4 +79,8 @@ function validAnagram(first, second) {
   
   // {a: 0, n: 0, g: 0, r: 0, m: 0,s:1}
   validAnagram('anagrams', 'nagaramm')
+
+
+//    Multiple pointers
+
 
