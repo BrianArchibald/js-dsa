@@ -76,6 +76,23 @@ function validAnagram(first, second) {
   
     return true;
   }
+
+  // Python Solution
+  class Solution:
+    def isAnagram(self, s: str, t: str) -> bool:
+        if len(s) != len(t):
+            return False
+        lookup = {}
+        for char in s:
+            lookup[char] = lookup.get(char, 0) + 1
+        for char in t:
+            if char not in lookup:
+                return False
+            elif lookup[char] < 1:
+                return False
+            else:
+                lookup[char] -= 1
+        return True
   
   // {a: 0, n: 0, g: 0, r: 0, m: 0,s:1}
   validAnagram('anagrams', 'nagaramm')
