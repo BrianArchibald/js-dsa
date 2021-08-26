@@ -116,11 +116,20 @@ function zeroSum(arr) {
       }
      }
   }
-  zeroSum([-3, -1, 0, 1, 4])
   
-  
-  console.log(zeroSum([-2, -1, 0, 1]))
+//  console.log(zeroSum([-2, -1, 0, 1]))
 
+// Unique Values
+//  return how many unique values are in SORTED array  , Multiple pointers
 
-
-
+function uniqueElements(arr){
+  if(arr.length == 0) return 0
+  let i = 0
+  for(j = 1; j < arr.length; j++){
+    if(arr[i] !== arr[j]) {
+      i++
+      arr[i] = arr[j]
+    }
+  }
+  return i + 1
+}
