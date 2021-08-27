@@ -78,21 +78,21 @@ function validAnagram(first, second) {
   }
 
   // Python Solution
-  class Solution:
-    def isAnagram(self, s: str, t: str) -> bool:
-        if len(s) != len(t):
-            return False
-        lookup = {}
-        for char in s:
-            lookup[char] = lookup.get(char, 0) + 1
-        for char in t:
-            if char not in lookup:
-                return False
-            elif lookup[char] < 1:
-                return False
-            else:
-                lookup[char] -= 1
-        return True
+  // class Solution:
+  //   def isAnagram(self, s: str, t: str) -> bool:
+  //       if len(s) != len(t):
+  //           return False
+  //       lookup = {}
+  //       for char in s:
+  //           lookup[char] = lookup.get(char, 0) + 1
+  //       for char in t:
+  //           if char not in lookup:
+  //               return False
+  //           elif lookup[char] < 1:
+  //               return False
+  //           else:
+  //               lookup[char] -= 1
+  //       return True
   
   // {a: 0, n: 0, g: 0, r: 0, m: 0,s:1}
   validAnagram('anagrams', 'nagaramm')
@@ -133,3 +133,22 @@ function uniqueElements(arr){
   }
   return i + 1
 }
+
+
+//   Sliding window  .......
+function maxSubarraySum(arr, num){
+  let maxSum = 0;
+  let tempSum = 0;
+  if (arr.length < num) return null;
+  for (let i = 0; i < num; i++) {
+    maxSum += arr[i];
+  }
+  tempSum = maxSum;
+  for (let i = num; i < arr.length; i++) {
+    tempSum = tempSum - arr[i - num] + arr[i];
+    maxSum = Math.max(maxSum, tempSum);
+  }
+  return maxSum;
+}
+
+maxSubarraySum([2,6,9,2,1,8,5,6,3],3)
