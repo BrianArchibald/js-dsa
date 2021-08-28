@@ -78,21 +78,21 @@ function validAnagram(first, second) {
   }
 
   // Python Solution
-  // class Solution:
-  //   def isAnagram(self, s: str, t: str) -> bool:
-  //       if len(s) != len(t):
-  //           return False
-  //       lookup = {}
-  //       for char in s:
-  //           lookup[char] = lookup.get(char, 0) + 1
-  //       for char in t:
-  //           if char not in lookup:
-  //               return False
-  //           elif lookup[char] < 1:
-  //               return False
-  //           else:
-  //               lookup[char] -= 1
-  //       return True
+  class Solution:
+    def isAnagram(self, s: str, t: str) -> bool:
+        if len(s) != len(t):
+            return False
+        lookup = {}
+        for char in s:
+            lookup[char] = lookup.get(char, 0) + 1
+        for char in t:
+            if char not in lookup:
+                return False
+            elif lookup[char] < 1:
+                return False
+            else:
+                lookup[char] -= 1
+        return True
   
   // {a: 0, n: 0, g: 0, r: 0, m: 0,s:1}
   validAnagram('anagrams', 'nagaramm')
@@ -152,3 +152,27 @@ function maxSubarraySum(arr, num){
 }
 
 maxSubarraySum([2,6,9,2,1,8,5,6,3],3)
+
+///  same frequency of numbers in both inputs
+function sameFrequency(num1, num2){
+  let strNum1 = num1.toString();
+  let strNum2 = num2.toString();
+  if(strNum1.length !== strNum2.length) return false;
+  
+  let countNum1 = {};
+  let countNum2 = {};
+  
+  for(let i = 0; i < strNum1.length; i++){
+    countNum1[strNum1[i]] = (countNum1[strNum1[i]] || 0) + 1
+  }
+  
+  for(let j = 0; j < strNum1.length; j++){
+    countNum2[strNum2[j]] = (countNum2[strNum2[j]] || 0) + 1
+  }
+  
+  for(let key in countNum1){
+    if(countNum1[key] !== countNum2[key]) return false;
+  }
+ 
+  return true;
+}
