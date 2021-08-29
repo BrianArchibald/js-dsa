@@ -176,3 +176,32 @@ function sameFrequency(num1, num2){
  
   return true;
 }
+
+
+// One liner using Set
+function areThereDuplicates() {
+  return new Set(arguments).size !== arguments.length;
+}
+/////////////////////////////////////////////////////////////////////////
+//  Multiple pointers
+Given a sorted array and an average int , determine if there an average of a pair that adds up to the avg int 
+
+function avgPair(arr, num){
+  if (arr.length === 0){ return false }
+  let left = 0
+  let right = arr.length - 1
+  while(left<right){
+    let correct = arr[left] + arr[right] / 2 === num
+    if(correct){
+      return true
+    }
+    else if ( correct < num) {
+      left++
+    } else {
+      right++
+    }
+  } return false
+
+}
+
+console.log(avgPair([1,2,3],2.5))
