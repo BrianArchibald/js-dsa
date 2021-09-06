@@ -287,3 +287,16 @@ function findLongestSubstring(str) {
   }
   return longest;
 }
+
+//////////////////////////////////////////////////////////////////////
+
+RECURSION
+
+function sumRange(num){
+  if(num === 1) return 1; 
+  return num + sumRange(num-1);
+}
+
+sumRange(4)
+
+// all the returns are waiting on the prev call before returning.
