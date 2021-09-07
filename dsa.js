@@ -300,3 +300,10 @@ function sumRange(num){
 sumRange(4)
 
 // all the returns are waiting on the prev call before returning.
+
+FACTORIAL RECURSION
+
+function factorial(num){
+  if (num === 1) return 1
+  return num * factorial(num-1)
+}
