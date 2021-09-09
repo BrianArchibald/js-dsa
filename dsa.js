@@ -344,3 +344,32 @@ function productOfArray(arr) {
   }
   return arr[0] * productOfArray(arr.slice(1));
 }
+// RECURSION Range of num passed in
+function recursiveRange(x){
+  if (x === 0 ) return 0;
+  return x + recursiveRange(x-1);
+}
+// RECURSION FIB FIBONACCI
+function fib(n){
+  if (n <= 2) return 1;
+  return fib(n-1) + fib(n-2);
+  function capitalizeWords (array) {
+    if (array.length === 1) {
+      return [array[0].toUpperCase()];
+    }
+    let res = capitalizeWords(array.slice(0, -1));
+    res.push(array.slice(array.length-1)[0].toUpperCase());
+    return res;
+   
+  }}
+
+  // RECURSION capitalize words
+  function capitalizeWords (array) {
+    if (array.length === 1) {
+      return [array[0].toUpperCase()];
+    }
+    let res = capitalizeWords(array.slice(0, -1));
+    res.push(array.slice(array.length-1)[0].toUpperCase());
+    return res;
+   
+  }
