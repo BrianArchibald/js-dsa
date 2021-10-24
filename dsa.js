@@ -397,3 +397,26 @@ function fib(n){
 }
 
 binarySearch([2,5,6,9,13,15,28,30], 103)
+
+///////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////
+
+// Binary Trees
+
+/////////////////////////////////////////////////////////////////////////////////
+
+DFS  Time O(n) and Space is O(n)
+
+Iterative
+
+const depthFirstValues = (root) => {
+  const result = []
+  const stack = [root]
+  while (stack.length > 0) {
+    const current = stack.pop()
+    result.push(current.val)
+
+    if (current.right) stack.push(current.right)
+    if (current.left) stack.push(current.left)
+  }
+}
