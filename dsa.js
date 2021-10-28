@@ -404,6 +404,7 @@ binarySearch([2,5,6,9,13,15,28,30], 103)
 // Binary Trees
 
 /////////////////////////////////////////////////////////////////////////////////
+  //  FCC   Alvin
 
 DFS  Time O(n) and Space is O(n)
 
@@ -421,4 +422,42 @@ const depthFirstValues = (root) => {
     if (current.left) stack.push(current.left)
   }
   return result
+}
+//////////////////////////////////////////////
+Recursive
+//////////////////////////////////////////////
+//
+const depthFirstValues = (root) => {
+  if (root == null) return []
+  const leftValues = depthFirstValues(root.left)
+  const rightValues = depthFirstValues(root.right)
+  return [ root.val, ...leftValues, ...rightValues ]
+}
+
+///////////////////////////////////////////////////////////////////////////////////
+//
+ BFS  Time O(n) and Space is O(n)
+
+const breadthFirstValues = (root) => {
+  if (root == null) return []
+
+  const values = []
+  const queue = [ root ]
+
+  while (queue.length > 0){
+    // index 0 is front of q and the last index is the back of the q
+    const current = queue.shift()
+    if (current.left != null) queue.push(current.left)
+    if (current.right != null) queue.push(current.right)
+  }
+  return values
+}
+///////////////////////////////////////////////////////////////////////////////////
+//
+ //  Find a target val in a binary tree
+
+//  Breadth first way
+
+const treeIncludes = (root, target) => {
+
 }
