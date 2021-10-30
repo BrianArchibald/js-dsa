@@ -509,4 +509,23 @@ const treeSum = (root) => {
   }
   return totalSum
 }
+//
+////////////////////////////////////////////////////////////////////////////
+//
+Tree min
+Recursive
+
+const treeMin = (root) => {
+  let smallest = Infinity
+  const stack = [ root ]
+
+  while (stack.length > 0) {
+    const current = stack.pop()
+    if (current.val < smallest) smallest = current.val
+
+    if (current.left !== null) queue.push(current.left)
+    if (current.right !== null) queue.push(current.right)
+  }
+  return smallest
+}
 
