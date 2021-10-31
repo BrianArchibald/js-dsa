@@ -528,4 +528,16 @@ const treeMin = (root) => {
   }
   return smallest
 }
+////////////////////////////////////////////////////////////////////////////
+//
+Tree max path sum
+Recursive
+
+const maxPathSum = (root) => {
+  if (root.val == null) return -Infinity
+  if (root.left == null && root.right == null) return root.val
+
+  const maxChildSum = Math.max(maxPathSum(root.left), maxPathSum(root.right))
+  return root.val + maxChildSum
+}
 
